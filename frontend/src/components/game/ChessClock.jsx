@@ -1,4 +1,4 @@
-function formatTime(totalSeconds) {
+export function formatTime(totalSeconds) {
   const safe = Math.max(0, totalSeconds);
   const minutes = Math.floor(safe / 60);
   const seconds = safe % 60;

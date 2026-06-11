@@ -72,9 +72,9 @@ export default function PlayPage({ tournamentMode = false }) {
 
   const activeColor = fen ? (new Chess(fen).turn() === "w" ? "white" : "black") : null;
 
-  // Tick down the clock for whoever's turn it is.
+  // Tick down the clock for whoever's turn it is. Tournament games only.
   useEffect(() => {
-    if (phase !== "playing" || status !== "in_progress" || !activeColor) return undefined;
+    if (!tournamentMode || phase !== "playing" || status !== "in_progress" || !activeColor) return undefined;
     const id = setInterval(() => {
       if (activeColor === "white") {
         setWhiteTime((t) => Math.max(0, t - 1));
@@ -85,9 +85,9 @@ export default function PlayPage({ tournamentMode = false }) {
     return () => clearInterval(id);
   }, [activeColor, phase, status]);
 
-  // End the game when either clock hits zero.
+  // End the game when either clock hits zero. Tournament games only.
   useEffect(() => {
-    if (phase !== "playing" || status !== "in_progress") return;
+    if (!tournamentMode || phase !== "playing" || status !== "in_progress") return;
     if (whiteTime === 0) handleTimeout("white");
     else if (blackTime === 0) handleTimeout("black");
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -251,23 +251,35 @@ export default function PlayPage({ tournamentMode = false }) {
       {error && <div className="form-error">{error}</div>}
       <div className="play-layout">
         <div className="board-column">
-          <ChessClock
-            label="AI"
-            seconds={userColor === "white" ? blackTime : whiteTime}
-            active={phase === "playing" && status === "in_progress" && activeColor !== userColor}
-          />
+          {tournamentMode && (
+            <ChessClock
+              label="AI"
+              seconds={userColor === "white" ? blackTime : whiteTime}
+              active={phase === "playing" && status === "in_progress" && activeColor !== userColor}
+            />
+          )}
           <ChessBoardWrapper
             fen={fen}
             onMove={handleMove}
             boardOrientation={userColor}
             disabled={aiThinking || phase !== "playing"}
             lastMove={lastMove}
+            whiteTime={tournamentMode ? whiteTime : null}
+            blackTime={tournamentMode ? blackTime : null}
+            activeColor={activeColor}
+            userColor={userColor}
+            status={status}
+            result={result}
+            isCheck={isCheck}
+            aiThinking={aiThinking}
           />
-          <ChessClock
-            label="You"
-            seconds={userColor === "white" ? whiteTime : blackTime}
-            active={phase === "playing" && status === "in_progress" && activeColor === userColor}
-          />
+          {tournamentMode && (
+            <ChessClock
+              label="You"
+              seconds={userColor === "white" ? whiteTime : blackTime}
+              active={phase === "playing" && status === "in_progress" && activeColor === userColor}
+            />
+          )}
         </div>
         <div className="side-panel">
           <MoveHistory moves={sanHistory} />
