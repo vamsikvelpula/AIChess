@@ -1904,9 +1904,16 @@ button {
   padding: 4px 0 28px;
   user-select: none;
   -webkit-user-select: none;
+  /* Warm, sunlit-room palette for this scene only - overrides the app's
+     dark theme tokens for everything nested inside. */
+  --text: #4a3a2a;
+  --text-muted: #95816a;
+  --border: #ddc7a8;
+  --bg-card: #fffaf0;
+  --bg-card-hover: #f6e9d2;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(120, 140, 170, 0.12), transparent 60%),
-    linear-gradient(180deg, #161b22 0%, #11151b 55%, #0c0f14 100%);
+    radial-gradient(ellipse at 50% 0%, rgba(255, 235, 205, 0.6), transparent 65%),
+    linear-gradient(180deg, #f7ecd9 0%, #efddc0 55%, #e6cda4 100%);
   border-radius: 18px;
 }
 
@@ -1931,14 +1938,14 @@ button {
   inset: 0;
   border-radius: 28px;
   background:
-    radial-gradient(ellipse at 50% 36%, rgba(255, 255, 255, 0.08), transparent 55%),
-    linear-gradient(160deg, #1f4f3d 0%, #173a2c 55%, #0e2219 100%);
-  border: 2px solid rgba(217, 166, 72, 0.4);
+    radial-gradient(ellipse at 50% 36%, rgba(255, 255, 255, 0.18), transparent 55%),
+    linear-gradient(160deg, #c8945f 0%, #a8703f 55%, #8a5a36 100%);
+  border: 2px solid rgba(107, 66, 37, 0.5);
   box-shadow:
-    0 6px 0 #0a1712,
-    0 12px 0 #07120d,
-    0 46px 80px rgba(0, 0, 0, 0.6),
-    inset 0 0 70px rgba(0, 0, 0, 0.45);
+    0 6px 0 #6b4225,
+    0 12px 0 #543018,
+    0 46px 80px rgba(74, 46, 24, 0.45),
+    inset 0 0 70px rgba(74, 46, 24, 0.3);
 }
 
 /* Chessboard inset on the table */
@@ -2152,11 +2159,11 @@ button {
   gap: 4px;
   justify-content: center;
   padding: 6px;
-  background: rgba(15, 18, 22, 0.92);
+  background: rgba(255, 250, 240, 0.96);
   border: 1px solid var(--accent);
   border-radius: 8px;
   transform: translateZ(70px) rotateX(-48deg);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 24px rgba(74, 46, 24, 0.35);
 }
 
 .chess-3d-promo-option {
@@ -2187,14 +2194,14 @@ button {
   width: min(760px, 100%);
   padding: 8px 14px;
   border-radius: 10px;
-  background: rgba(15, 18, 22, 0.5);
+  background: rgba(255, 250, 240, 0.55);
   border: 1px solid var(--border);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .chess-3d-player-row.is-active {
   border-color: var(--accent);
-  box-shadow: 0 0 14px rgba(217, 166, 72, 0.25);
+  box-shadow: 0 0 14px rgba(217, 166, 72, 0.35);
 }
 
 .chess-3d-player-info {
@@ -2230,7 +2237,7 @@ button {
   position: relative;
   width: 3px;
   height: 8px;
-  background: #5a6371;
+  background: #c9b08a;
 }
 
 .chess-3d-robot-antenna::after {
@@ -2242,8 +2249,8 @@ button {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 10px 2px var(--blue);
+  background: var(--accent-strong);
+  box-shadow: 0 0 10px 2px var(--accent);
   animation: chess-3d-blink 2.6s ease-in-out infinite;
 }
 
@@ -2252,8 +2259,8 @@ button {
   width: 46px;
   height: 32px;
   border-radius: 10px;
-  background: linear-gradient(160deg, #aab4c2, #6f7986 60%, #4a5260);
-  border: 2px solid #38404c;
+  background: linear-gradient(160deg, #fbf3e3, #e3d2b4 60%, #c7b08a);
+  border: 2px solid #b89a6f;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2264,8 +2271,8 @@ button {
   width: 62px;
   height: 26px;
   border-radius: 10px 10px 6px 6px;
-  background: linear-gradient(160deg, #8d97a6, #545c69 70%, #3a4250);
-  border: 2px solid #2c333d;
+  background: linear-gradient(160deg, #efe2c8, #d4bd97 70%, #b89a6f);
+  border: 2px solid #a8895f;
 }
 
 /* Shared face: eyes + mouth, reused by the robot and the chair occupant */
@@ -2285,15 +2292,15 @@ button {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 6px 1px var(--blue);
+  background: var(--accent-strong);
+  box-shadow: 0 0 6px 1px var(--accent);
   transition: width 0.25s ease, height 0.25s ease, border-radius 0.25s ease, transform 0.25s ease;
 }
 
 .chess-3d-mouth {
   width: 13px;
   height: 5px;
-  border: 2px solid var(--blue);
+  border: 2px solid var(--accent-strong);
   border-top: none;
   border-radius: 0 0 7px 7px;
   background: transparent;
@@ -2332,7 +2339,7 @@ button {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  border: 2px solid var(--blue);
+  border: 2px solid var(--accent-strong);
 }
 
 /* Thinking: a quicker, narrower blink while the AI calculates */
@@ -2430,8 +2437,8 @@ button {
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
-  background: #11161c;
-  color: #8d99ad;
+  background: #fffaf0;
+  color: #a4896a;
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 4px 12px;
