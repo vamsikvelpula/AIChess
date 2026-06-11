@@ -30,9 +30,9 @@ export default function LevelSelector({ unlockedMaxLevel }) {
         })}
       </div>
       <div className="legend">
-        <span><span className="legend-swatch" style={{ background: "var(--border)" }} />Levels 1-9: Beginner-friendly</span>
-        <span><span className="legend-swatch" style={{ background: "var(--red)" }} />Levels 10-14: Tough</span>
-        <span><span className="legend-swatch" style={{ background: "var(--orange)" }} />Levels 15-20: Extreme</span>
+        <span><span className="legend-swatch" style={{ background: "var(--border)" }} />Levels 1-45: Beginner-friendly</span>
+        <span><span className="legend-swatch" style={{ background: "var(--red)" }} />Levels 46-70: Tough</span>
+        <span><span className="legend-swatch" style={{ background: "var(--orange)" }} />Levels 71-100: Extreme</span>
       </div>
     </div>
   );

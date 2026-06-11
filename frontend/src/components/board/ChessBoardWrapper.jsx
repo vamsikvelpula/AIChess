@@ -1,5 +1,36 @@
 import { Chess } from "chess.js";
 import { Chessboard } from "react-chessboard";
+import {
+  boardStyle,
+  darkSquareStyle,
+  lightSquareStyle,
+  dropSquareStyle,
+  draggingPieceStyle,
+  draggingPieceGhostStyle,
+  darkSquareNotationStyle,
+  lightSquareNotationStyle,
+  lastMoveSquareStyle,
+  checkSquareStyle,
+} from "./boardTheme";
+
+function findCheckedKingSquare(fen) {
+  if (!fen) return null;
+  try {
+    const game = new Chess(fen);
+    if (!game.inCheck()) return null;
+    const turn = game.turn();
+    for (const row of game.board()) {
+      for (const piece of row) {
+        if (piece && piece.type === "k" && piece.color === turn) {
+          return piece.square ?? null;
+        }
+      }
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
 
 export default function ChessBoardWrapper({
   fen,
@@ -7,6 +38,7 @@ export default function ChessBoardWrapper({
   boardOrientation = "white",
   arrows = [],
   disabled = false,
+  lastMove = null,
 }) {
   function handlePieceDrop({ piece, sourceSquare, targetSquare }) {
     if (disabled || !targetSquare) return false;
@@ -38,6 +70,16 @@ export default function ChessBoardWrapper({
     return true;
   }
 
+  const squareStyles = {};
+  if (lastMove?.from && lastMove?.to) {
+    squareStyles[lastMove.from] = lastMoveSquareStyle;
+    squareStyles[lastMove.to] = lastMoveSquareStyle;
+  }
+  const checkSquare = findCheckedKingSquare(fen);
+  if (checkSquare) {
+    squareStyles[checkSquare] = checkSquareStyle;
+  }
+
   const options = {
     position: fen,
     onPieceDrop: handlePieceDrop,
@@ -45,6 +87,15 @@ export default function ChessBoardWrapper({
     arrows,
     allowDragging: !disabled,
     animationDurationInMs: 200,
+    boardStyle,
+    darkSquareStyle,
+    lightSquareStyle,
+    dropSquareStyle,
+    draggingPieceStyle,
+    draggingPieceGhostStyle,
+    darkSquareNotationStyle,
+    lightSquareNotationStyle,
+    squareStyles,
   };
 
   return (

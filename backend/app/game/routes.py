@@ -19,12 +19,13 @@ def start_game():
     data = request.get_json(silent=True) or {}
     level = int(data.get("level", 1))
     user_color = data.get("user_color", "white")
+    mode = data.get("mode", "campaign")
     if user_color not in ("white", "black"):
         user_color = "white"
 
     if level < 1 or level > MAX_LEVEL:
         return jsonify({"error": "invalid level"}), 400
-    if level > user.progress.unlocked_max_level:
+    if mode != "tournament" and level > user.progress.unlocked_max_level:
         return jsonify({"error": "level locked"}), 403
 
     game = Game(
@@ -131,6 +132,27 @@ def resign(game_id):
 
     game.status = "completed"
     game.result = "0-1" if game.user_color == "white" else "1-0"
+    db.session.commit()
+    return jsonify({"status": "completed", "result": game.result}), 200
+
+
+@bp.post("/<int:game_id>/timeout")
+@login_required
+def timeout(game_id):
+    user = g.current_user
+    game = db.session.get(Game, game_id)
+    if game is None or game.user_id != user.id:
+        return jsonify({"error": "game not found"}), 404
+    if game.status != "in_progress":
+        return jsonify({"error": "game already finished"}), 400
+
+    data = request.get_json(silent=True) or {}
+    timed_out_color = data.get("color")
+    if timed_out_color not in ("white", "black"):
+        return jsonify({"error": "invalid color"}), 400
+
+    game.status = "completed"
+    game.result = "0-1" if timed_out_color == "white" else "1-0"
     db.session.commit()
     return jsonify({"status": "completed", "result": game.result}), 200
 

@@ -13,6 +13,7 @@ import PuzzlesPage from "./pages/PuzzlesPage";
 import PuzzleSolvePage from "./pages/PuzzleSolvePage";
 import LessonsPage from "./pages/LessonsPage";
 import LessonDetailPage from "./pages/LessonDetailPage";
+import TournamentPage from "./pages/TournamentPage";
 
 function App() {
   const { user } = useAuth();
@@ -29,6 +30,8 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<DashboardPage />} />
             <Route path="/play/:level" element={<PlayPage />} />
+            <Route path="/tournament" element={<TournamentPage />} />
+            <Route path="/tournament/:level" element={<PlayPage tournamentMode />} />
             <Route path="/analysis/:gameId" element={<AnalysisPage />} />
             <Route path="/history" element={<HistoryPage />} />
             <Route path="/puzzles" element={<PuzzlesPage />} />

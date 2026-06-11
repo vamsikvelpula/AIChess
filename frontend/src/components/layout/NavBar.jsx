@@ -22,6 +22,7 @@ export default function NavBar() {
       </div>
       <nav className="navbar-links">
         <NavLink to="/" end>Dashboard</NavLink>
+        <NavLink to="/tournament">Tournament</NavLink>
         <NavLink to="/puzzles">Puzzles</NavLink>
         <NavLink to="/lessons">Lessons</NavLink>
         <NavLink to="/history">History</NavLink>
