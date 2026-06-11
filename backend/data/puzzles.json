@@ -1,0 +1,304 @@
+{
+  "puzzles": [
+    {
+      "id": "p01",
+      "title": "Back Rank Mate",
+      "theme": "back_rank_mate",
+      "difficulty": 1,
+      "fen": "6k1/5ppp/8/8/8/8/8/R5K1 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "a1a8"
+      ],
+      "solution_san": [
+        "Ra8#"
+      ],
+      "explanation": "Black's king is trapped behind its own pawns. Ra8# delivers mate along the open back rank."
+    },
+    {
+      "id": "p02",
+      "title": "Queen to the Back Rank",
+      "theme": "mate_in_1",
+      "difficulty": 1,
+      "fen": "6k1/5ppp/8/8/8/8/6PP/4Q1K1 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "e1e8"
+      ],
+      "solution_san": [
+        "Qe8#"
+      ],
+      "explanation": "The e-file is wide open. Qe8# checks along the back rank with no escape squares for the king."
+    },
+    {
+      "id": "p03",
+      "title": "Smothered Mate",
+      "theme": "smothered_mate",
+      "difficulty": 3,
+      "fen": "6rk/6pp/3N4/8/8/8/8/K7 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "d6f7"
+      ],
+      "solution_san": [
+        "Nf7#"
+      ],
+      "explanation": "Black's king is completely smothered by its own rook and pawns. Nf7# is checkmate because the king has nowhere to go and nothing can capture the knight."
+    },
+    {
+      "id": "p04",
+      "title": "Ladder Mate",
+      "theme": "mate_in_1",
+      "difficulty": 1,
+      "fen": "7k/R7/8/8/8/8/8/1R2K3 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "b1b8"
+      ],
+      "solution_san": [
+        "Rb8#"
+      ],
+      "explanation": "The rook on a7 cuts off the 7th rank. Rb8# delivers mate on the back rank with the king unable to step onto rank 7."
+    },
+    {
+      "id": "p05",
+      "title": "Punish the Greedy Knight",
+      "theme": "mate_in_1",
+      "difficulty": 2,
+      "fen": "rnbqk2r/pppp1ppp/5n2/2b1p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4",
+      "side_to_move": "white",
+      "solution_uci": [
+        "h5f7"
+      ],
+      "solution_san": [
+        "Qxf7#"
+      ],
+      "explanation": "Black ignored the threat to f7. Qxf7# is checkmate \u2014 the queen is defended by the bishop on c4 and the king has no escape squares."
+    },
+    {
+      "id": "p06",
+      "title": "Royal Fork",
+      "theme": "fork",
+      "difficulty": 2,
+      "fen": "3q4/6k1/8/6N1/8/8/8/K7 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "g5e6"
+      ],
+      "solution_san": [
+        "Ne6+"
+      ],
+      "explanation": "Ne6+ forks the king on g7 and the queen on d8. After the king moves, White wins the queen."
+    },
+    {
+      "id": "p07",
+      "title": "Knight Fork: King and Rook",
+      "theme": "fork",
+      "difficulty": 2,
+      "fen": "2r1k3/8/8/5N2/8/8/8/K7 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "f5d6"
+      ],
+      "solution_san": [
+        "Nd6+"
+      ],
+      "explanation": "Nd6+ forks the king on e8 and the rook on c8. The king must move, then White captures the rook."
+    },
+    {
+      "id": "p08",
+      "title": "Pawn Fork",
+      "theme": "fork",
+      "difficulty": 2,
+      "fen": "6k1/5ppp/2n1b3/8/3P4/8/8/6K1 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "d4d5"
+      ],
+      "solution_san": [
+        "d5"
+      ],
+      "explanation": "d5! attacks both the knight on c6 and the bishop on e6 with a single pawn move. One of them will fall."
+    },
+    {
+      "id": "p09",
+      "title": "Queen Fork",
+      "theme": "fork",
+      "difficulty": 3,
+      "fen": "r5k1/5ppp/8/8/8/8/1Q6/6K1 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "b2b8"
+      ],
+      "solution_san": [
+        "Qb8+"
+      ],
+      "explanation": "Qb8+ checks the king and simultaneously attacks the rook on a8 \u2014 a winning fork."
+    },
+    {
+      "id": "p10",
+      "title": "Pin the Knight",
+      "theme": "pin",
+      "difficulty": 2,
+      "fen": "4k3/8/2n5/8/B7/8/8/4K3 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "a4b5"
+      ],
+      "solution_san": [
+        "Bb5"
+      ],
+      "explanation": "Bb5 pins the knight on c6 to the king on e8 — the knight cannot move without exposing the king to check. The bishop also attacks the now-frozen, undefended knight directly, so Bxc6 wins it next move."
+    },
+    {
+      "id": "p11",
+      "title": "Pin the Knight to the Queen",
+      "theme": "pin",
+      "difficulty": 2,
+      "fen": "3q2k1/5ppp/8/3n4/8/8/8/R5K1 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "a1d1"
+      ],
+      "solution_san": [
+        "Rd1"
+      ],
+      "explanation": "Rd1 pins the knight on d5 to the queen on d8. If the knight moves, the rook wins the queen."
+    },
+    {
+      "id": "p12",
+      "title": "Diagonal Pin",
+      "theme": "pin",
+      "difficulty": 3,
+      "fen": "4k3/p7/2b5/8/8/1Q6/8/4K3 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "b3a4"
+      ],
+      "solution_san": [
+        "Qa4"
+      ],
+      "explanation": "Qa4 pins the bishop on c6 to the king on e8 along the long a4-e8 diagonal. The bishop has no defender, so it is now stuck and lost — Qxc6 wins it next move."
+    },
+    {
+      "id": "p13",
+      "title": "Back Rank Skewer",
+      "theme": "skewer",
+      "difficulty": 2,
+      "fen": "2k4r/8/8/8/8/8/8/R3K3 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "a1a8"
+      ],
+      "solution_san": [
+        "Ra8+"
+      ],
+      "explanation": "Ra8+ skewers the king on c8. After the king moves off the back rank, the rook captures the rook on h8."
+    },
+    {
+      "id": "p14",
+      "title": "Bishop Skewer",
+      "theme": "skewer",
+      "difficulty": 3,
+      "fen": "8/8/8/3k3B/8/8/q7/4K3 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "h5f7"
+      ],
+      "solution_san": [
+        "Bf7+"
+      ],
+      "explanation": "Bf7+ skewers the king on d5 and the queen on a2 along the long diagonal. Once the king moves, the bishop wins the queen."
+    },
+    {
+      "id": "p15",
+      "title": "Discovered Check",
+      "theme": "discovered_attack",
+      "difficulty": 3,
+      "fen": "k7/8/3q4/8/8/N7/8/R3K3 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "a3b5"
+      ],
+      "solution_san": [
+        "Nb5+"
+      ],
+      "explanation": "Nb5+ uncovers an attack from the rook on a1 to the king on a8 (discovered check) while the knight itself attacks the queen on d6."
+    },
+    {
+      "id": "p16",
+      "title": "Unveil the Rook",
+      "theme": "discovered_attack",
+      "difficulty": 3,
+      "fen": "3q2k1/5ppp/1n6/8/3B4/8/8/3R2K1 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "d4e3"
+      ],
+      "solution_san": [
+        "Be3"
+      ],
+      "explanation": "Be3 steps off the d-file, revealing the rook on d1's attack on the undefended queen on d8 — while the bishop itself now attacks the knight on b6, which only the queen was defending. Black cannot save both pieces."
+    },
+    {
+      "id": "p17",
+      "title": "Queen Double Attack",
+      "theme": "double_attack",
+      "difficulty": 3,
+      "fen": "r3k3/8/8/7n/8/8/3Q4/4K3 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "d2a5"
+      ],
+      "solution_san": [
+        "Qa5"
+      ],
+      "explanation": "Qa5 attacks the rook on a8 along the file and the knight on h5 along the rank at the same time."
+    },
+    {
+      "id": "p18",
+      "title": "Rook Double Attack",
+      "theme": "double_attack",
+      "difficulty": 3,
+      "fen": "4k3/3b4/8/8/1n5R/8/8/4K3 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "h4d4"
+      ],
+      "solution_san": [
+        "Rd4"
+      ],
+      "explanation": "Rd4 attacks the bishop on d7 along the file and the knight on b4 along the rank at the same time."
+    },
+    {
+      "id": "p19",
+      "title": "Queen and Knight Mate",
+      "theme": "mate_in_1",
+      "difficulty": 2,
+      "fen": "7k/8/5N2/8/8/8/8/K5Q1 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "g1g8"
+      ],
+      "solution_san": [
+        "Qg8#"
+      ],
+      "explanation": "Qg8# is checkmate: the knight on f6 defends the queen and covers g8, while the queen itself covers g7 and h7."
+    },
+    {
+      "id": "p20",
+      "title": "Back Rank Mate with Bishop Support",
+      "theme": "back_rank_mate",
+      "difficulty": 2,
+      "fen": "6k1/5p1p/8/8/8/8/1B6/R5K1 w - - 0 1",
+      "side_to_move": "white",
+      "solution_uci": [
+        "a1a8"
+      ],
+      "solution_san": [
+        "Ra8#"
+      ],
+      "explanation": "Ra8# is mate \u2014 the bishop on b2 covers the only escape square on g7."
+    }
+  ]
+}

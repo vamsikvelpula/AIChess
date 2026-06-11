@@ -1,0 +1,36 @@
+# --- Sensitive files ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- Backend (Python/Flask) ---
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+*.pyc
+backend/instance/
+backend/data/*.db
+backend/data/*.sqlite*
+
+# --- Frontend (Vite/React) ---
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+
+# --- Logs ---
+*.log
+npm-debug.log*
+
+# --- Editor / OS ---
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
