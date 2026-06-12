@@ -2085,182 +2085,38 @@ button {
     inset 0 1px 2px rgba(255, 255, 255, 0.12);
 }
 
-/* Geometric piece "standee" - counter-rotated to face the camera flat,
-   built from clipped/rounded shapes so each piece type reads as a
-   distinct silhouette, like the reference's isometric vector pieces. */
-.chess-3d-piece-stand {
+/* Glyph standee - counter-rotated to undo the board's isometric tilt so
+   each piece symbol faces the camera flat, like a card standing on the square. */
+.chess-3d-piece-glyph {
   position: relative;
-  width: clamp(13px, 3vw, 24px);
-  height: clamp(19px, 4.5vw, 35px);
-  margin-bottom: 2%;
+  display: block;
+  font-size: clamp(20px, 4.6vw, 38px);
+  line-height: 1;
   transform-style: preserve-3d;
-  transform: translateZ(6px) rotateZ(-45deg) rotateX(-60deg);
+  transform: translateZ(8px) rotateZ(-45deg) rotateX(-60deg);
   transform-origin: center bottom;
 }
 
-.iso-piece-body,
-.iso-piece-top,
-.iso-piece-accent,
-.iso-piece-detail {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.chess-3d-piece--white .chess-3d-piece-glyph {
+  color: #fdfbf5;
+  -webkit-text-stroke: 1.5px rgba(74, 46, 24, 0.65);
+  text-stroke: 1.5px rgba(74, 46, 24, 0.65);
+  text-shadow:
+    0 1px 0 #d8cfba,
+    0 2px 0 #c2b89d,
+    0 3px 6px rgba(20, 26, 36, 0.4),
+    0 8px 14px rgba(20, 26, 36, 0.45);
 }
 
-.chess-3d-piece--white .iso-piece-body,
-.chess-3d-piece--white .iso-piece-top,
-.chess-3d-piece--white .iso-piece-accent {
-  background: linear-gradient(160deg, #fdfbf5 0%, #ddd2c0 60%, #b9ad96 100%);
-  filter:
-    drop-shadow(0 1px 0 rgba(74, 46, 24, 0.45))
-    drop-shadow(0 4px 8px rgba(20, 26, 36, 0.35));
-}
-
-.chess-3d-piece--black .iso-piece-body,
-.chess-3d-piece--black .iso-piece-top,
-.chess-3d-piece--black .iso-piece-accent {
-  background: linear-gradient(160deg, #565d6c 0%, #2e333d 60%, #14171d 100%);
-  filter:
-    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.18))
-    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
-}
-
-.chess-3d-piece--white .iso-piece-detail {
-  background: rgba(90, 70, 45, 0.45);
-}
-
-.chess-3d-piece--black .iso-piece-detail {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Pawn: small rounded head on a tapered base */
-.iso-piece--pawn .iso-piece-body {
-  bottom: 0;
-  width: 62%;
-  height: 46%;
-  clip-path: polygon(26% 100%, 74% 100%, 86% 38%, 14% 38%);
-  border-radius: 0 0 4px 4px;
-}
-
-.iso-piece--pawn .iso-piece-top {
-  bottom: 38%;
-  width: 46%;
-  height: 46%;
-  border-radius: 50%;
-}
-
-/* Rook: blocky tower with crenellated top */
-.iso-piece--rook .iso-piece-body {
-  bottom: 0;
-  width: 64%;
-  height: 58%;
-  border-radius: 3px 3px 8px 8px;
-}
-
-.iso-piece--rook .iso-piece-top {
-  bottom: 52%;
-  width: 80%;
-  height: 28%;
-  clip-path: polygon(0 100%, 0 35%, 16% 35%, 16% 0, 34% 0, 34% 35%, 66% 35%, 66% 0, 84% 0, 84% 35%, 100% 35%, 100% 100%);
-}
-
-/* Bishop: tall cone with a mitre slit and ball finial */
-.iso-piece--bishop .iso-piece-body {
-  bottom: 0;
-  width: 56%;
-  height: 64%;
-  clip-path: polygon(50% 0%, 88% 100%, 12% 100%);
-  border-radius: 0 0 8px 8px;
-}
-
-.iso-piece--bishop .iso-piece-top {
-  bottom: 60%;
-  width: 24%;
-  height: 24%;
-  border-radius: 50%;
-}
-
-.iso-piece--bishop .iso-piece-detail {
-  bottom: 36%;
-  width: 56%;
-  height: 4px;
-  transform: translateX(-50%) rotate(-26deg);
-  border-radius: 2px;
-}
-
-/* Knight: angular horse-head profile */
-.iso-piece--knight .iso-piece-body {
-  bottom: 0;
-  width: 80%;
-  height: 78%;
-  clip-path: polygon(24% 100%, 18% 56%, 34% 26%, 60% 6%, 94% 18%, 82% 46%, 60% 40%, 56% 100%);
-  border-radius: 0 0 6px 6px;
-}
-
-.iso-piece--knight .iso-piece-detail {
-  bottom: 64%;
-  left: 66%;
-  width: 13%;
-  height: 13%;
-  border-radius: 50%;
-}
-
-/* Queen: fluted body topped with a jagged crown */
-.iso-piece--queen .iso-piece-body {
-  bottom: 0;
-  width: 60%;
-  height: 68%;
-  clip-path: polygon(34% 100%, 66% 100%, 80% 30%, 20% 30%);
-  border-radius: 0 0 6px 6px;
-}
-
-.iso-piece--queen .iso-piece-top {
-  bottom: 62%;
-  width: 78%;
-  height: 26%;
-  clip-path: polygon(0% 100%, 0% 60%, 16.5% 100%, 33% 45%, 50% 100%, 67% 45%, 83.5% 100%, 100% 60%, 100% 100%);
-}
-
-.iso-piece--queen .iso-piece-accent {
-  bottom: 86%;
-  width: 16%;
-  height: 16%;
-  border-radius: 50%;
-}
-
-/* King: fluted body topped with a flat crown and a cross finial */
-.iso-piece--king .iso-piece-body {
-  bottom: 0;
-  width: 62%;
-  height: 60%;
-  clip-path: polygon(32% 100%, 68% 100%, 80% 32%, 20% 32%);
-  border-radius: 0 0 6px 6px;
-}
-
-.iso-piece--king .iso-piece-top {
-  bottom: 54%;
-  width: 48%;
-  height: 22%;
-  border-radius: 6px 6px 3px 3px;
-}
-
-.iso-piece--king .iso-piece-accent {
-  bottom: 74%;
-  width: 10%;
-  height: 24%;
-  border-radius: 2px;
-}
-
-.iso-piece--king .iso-piece-accent::before {
-  content: "";
-  position: absolute;
-  top: 32%;
-  left: 50%;
-  width: 280%;
-  height: 32%;
-  transform: translateX(-50%);
-  background: inherit;
-  border-radius: 2px;
+.chess-3d-piece--black .chess-3d-piece-glyph {
+  color: #1b1e26;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35);
+  text-stroke: 1.5px rgba(255, 255, 255, 0.35);
+  text-shadow:
+    0 1px 0 #1c2027,
+    0 2px 0 #14171d,
+    0 3px 6px rgba(0, 0, 0, 0.5),
+    0 8px 14px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes chess-3d-piece-land {
@@ -2273,12 +2129,12 @@ button {
     opacity: 1;
   }
   100% {
-    transform: translateZ(6px) rotateZ(-45deg) rotateX(-60deg) scale(1);
+    transform: translateZ(8px) rotateZ(-45deg) rotateX(-60deg) scale(1);
     opacity: 1;
   }
 }
 
-.chess-3d-piece--landing .chess-3d-piece-stand {
+.chess-3d-piece--landing .chess-3d-piece-glyph {
   animation: chess-3d-piece-land 0.45s cubic-bezier(0.25, 0.8, 0.4, 1);
 }
 

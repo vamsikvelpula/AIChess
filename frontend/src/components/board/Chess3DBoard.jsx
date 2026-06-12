@@ -7,8 +7,6 @@ const PROMOTION_PIECES = ["q", "r", "b", "n"];
 const WHITE_GLYPHS = { p: "♙", n: "♘", b: "♗", r: "♖", q: "♕", k: "♔" };
 const BLACK_GLYPHS = { p: "♟", n: "♞", b: "♝", r: "♜", q: "♛", k: "♚" };
 
-const PIECE_SHAPES = { p: "pawn", n: "knight", b: "bishop", r: "rook", q: "queen", k: "king" };
-
 function isDarkSquare(file, rank) {
   return (FILES.indexOf(file) + rank) % 2 === 1;
 }
@@ -135,12 +133,9 @@ export default function Chess3DBoard({ fen, onMove, boardOrientation = "white", 
                       >
                         <span className="chess-3d-piece-shadow" />
                         <span className="chess-3d-piece-base" />
-                        <div className={`chess-3d-piece-stand iso-piece iso-piece--${PIECE_SHAPES[piece.type]}`}>
-                          <span className="iso-piece-body" />
-                          <span className="iso-piece-top" />
-                          <span className="iso-piece-accent" />
-                          <span className="iso-piece-detail" />
-                        </div>
+                        <span className="chess-3d-piece-glyph">
+                          {(piece.color === "w" ? WHITE_GLYPHS : BLACK_GLYPHS)[piece.type]}
+                        </span>
                       </div>
                     );
                   })()}
