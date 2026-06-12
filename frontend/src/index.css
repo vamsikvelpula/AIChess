@@ -1921,7 +1921,7 @@ button {
    matching the flat isometric-vector look of the reference image. */
 .chess-3d-table {
   position: relative;
-  width: min(820px, 100%);
+  width: min(920px, 100%);
   aspect-ratio: 16 / 9;
   margin: 0 auto;
 }
@@ -1939,7 +1939,7 @@ button {
 
 .chess-3d-table-top {
   position: absolute;
-  inset: 0;
+  inset: 8%;
   border-radius: 6px;
   background: linear-gradient(160deg, #95a5b8 0%, #7c8da2 55%, #5f7184 100%);
   border: 2px solid rgba(40, 52, 68, 0.35);
@@ -1954,7 +1954,7 @@ button {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 62%;
+  width: 70%;
   aspect-ratio: 1;
   transform: translate(-50%, -50%) translateZ(14px);
   transform-style: preserve-3d;
@@ -1963,9 +1963,9 @@ button {
 /* Twin-dial chess clock sitting on the table beside the board */
 .chess-3d-clock {
   position: absolute;
-  left: 14%;
-  top: 18%;
-  width: 15%;
+  left: 9%;
+  top: 11%;
+  width: 12%;
   aspect-ratio: 2 / 1;
   display: flex;
   gap: 6%;
