@@ -1,5 +1,10 @@
+import { useRef } from "react";
 import Chess3DBoard from "./Chess3DBoard";
 import { formatTime } from "../game/ChessClock";
+
+const BASE_ROTATE_X = 60;
+const BASE_ROTATE_Z = 45;
+const TILT_RANGE = 12;
 
 // Decide how the chair occupant (you) and the robot (AI) should "feel"
 // about the current position - mirrors a real opponent's reaction.
@@ -56,8 +61,29 @@ export default function Chess3DScene({
   const userActive = activeColor === userColor;
   const aiActive = activeColor !== null && activeColor !== userColor;
 
+  const tiltRef = useRef(null);
+
+  // Subtle parallax: the table tilts slightly toward the cursor, as if
+  // the viewer is leaning to look at the board from a different angle.
+  function handleMouseMove(e) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    const rotateX = BASE_ROTATE_X - py * TILT_RANGE;
+    const rotateZ = BASE_ROTATE_Z + px * TILT_RANGE;
+    if (tiltRef.current) {
+      tiltRef.current.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateZ(${rotateZ}deg)`;
+    }
+  }
+
+  function handleMouseLeave() {
+    if (tiltRef.current) {
+      tiltRef.current.style.transform = "";
+    }
+  }
+
   return (
-    <div className="chess-3d-scene">
+    <div className="chess-3d-scene" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <div className={`chess-3d-player-row chess-3d-player-row--ai${aiActive ? " is-active" : ""}`}>
         <div className="chess-3d-player-info">
           <span className="chess-3d-player-name">AI Opponent</span>
@@ -97,7 +123,7 @@ export default function Chess3DScene({
           </div>
         </div>
 
-        <div className="chess-3d-table-tilt">
+        <div className="chess-3d-table-tilt" ref={tiltRef}>
           <div className="chess-3d-table-top" />
           {showClocks && (
             <div className="chess-3d-clock">
