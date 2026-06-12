@@ -1987,17 +1987,17 @@ button {
 }
 
 .chess-3d-table-figure--user {
-  left: 1%;
-  top: 38%;
-  transform: translateY(-50%) scale(1.15);
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -28%) scale(1.2);
   transform-origin: center bottom;
 }
 
 .chess-3d-table-figure--ai {
-  right: 1%;
-  top: 30%;
-  transform: translateY(-50%) scale(1.05);
-  transform-origin: center bottom;
+  left: 50%;
+  top: -2%;
+  transform: translate(-50%, 0) scale(0.9);
+  transform-origin: center top;
 }
 
 /* Chessboard inset on the table */
