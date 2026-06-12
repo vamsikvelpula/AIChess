@@ -1960,6 +1960,31 @@ button {
   transform-style: preserve-3d;
 }
 
+/* Twin-dial chess clock sitting on the table beside the board */
+.chess-3d-clock {
+  position: absolute;
+  left: 14%;
+  top: 18%;
+  width: 15%;
+  aspect-ratio: 2 / 1;
+  display: flex;
+  gap: 6%;
+  padding: 6%;
+  background: linear-gradient(160deg, #a8703f, #6b4225);
+  border: 1px solid #4a2e16;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(20, 26, 36, 0.35);
+  transform: translateZ(16px);
+  transform-style: preserve-3d;
+}
+
+.chess-3d-clock-dial {
+  flex: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fffaf0, #ddc296 100%);
+  border: 2px solid #4a2e16;
+}
+
 .chess-3d-surface {
   position: relative;
   width: 100%;
@@ -2240,7 +2265,7 @@ button {
   position: relative;
   width: 3px;
   height: 8px;
-  background: #c9b08a;
+  background: #aab4c2;
 }
 
 .chess-3d-robot-antenna::after {
@@ -2252,8 +2277,8 @@ button {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--accent-strong);
-  box-shadow: 0 0 10px 2px var(--accent);
+  background: #5b9bd5;
+  box-shadow: 0 0 10px 2px rgba(91, 155, 213, 0.6);
   animation: chess-3d-blink 2.6s ease-in-out infinite;
 }
 
@@ -2262,11 +2287,33 @@ button {
   width: 46px;
   height: 32px;
   border-radius: 10px;
-  background: linear-gradient(160deg, #fbf3e3, #e3d2b4 60%, #c7b08a);
-  border: 2px solid #b89a6f;
+  background: linear-gradient(160deg, #f5f7fa, #d9dfe7 60%, #aab4c2);
+  border: 2px solid #8d99ab;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Blue "ear" accents on either side of the head, like the reference robot's headset */
+.chess-3d-robot-head::before,
+.chess-3d-robot-head::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(160deg, #6fb1e0, #3a6f9e);
+  border: 1px solid #2e587a;
+}
+
+.chess-3d-robot-head::before {
+  left: -6px;
+}
+
+.chess-3d-robot-head::after {
+  right: -6px;
 }
 
 .chess-3d-robot-body {
@@ -2274,8 +2321,8 @@ button {
   width: 62px;
   height: 26px;
   border-radius: 10px 10px 6px 6px;
-  background: linear-gradient(160deg, #efe2c8, #d4bd97 70%, #b89a6f);
-  border: 2px solid #a8895f;
+  background: linear-gradient(160deg, #eef1f5, #cdd5de 70%, #9aa6b7);
+  border: 2px solid #7c8a9c;
 }
 
 /* Shared face: eyes + mouth, reused by the robot and the chair occupant */
@@ -2317,6 +2364,16 @@ button {
   92% {
     opacity: 0.25;
   }
+}
+
+/* The robot's face uses cool blue "screen" accents instead of the warm accent color */
+.chess-3d-robot .chess-3d-eye {
+  background: #5b9bd5;
+  box-shadow: 0 0 6px 1px rgba(91, 155, 213, 0.5);
+}
+
+.chess-3d-robot .chess-3d-mouth {
+  border-color: #5b9bd5;
 }
 
 /* Happy: eyes become gentle upward arcs, mouth widens into a smile */
@@ -2376,21 +2433,21 @@ button {
   width: 58px;
   height: 64px;
   border-radius: 22px 22px 10px 10px;
-  background: linear-gradient(160deg, #f7f3e9, #d8d0bf 65%, #bdb39e);
-  border: 2px solid rgba(217, 166, 72, 0.55);
+  background: linear-gradient(160deg, #e6d3b3, #cdb691 65%, #a8916d);
+  border: 2px solid #9c8662;
 }
 
+/* Dark suit jacket, visible behind/below the occupant's head */
 .chess-3d-chair-back::before {
   content: "";
   position: absolute;
-  top: 8px;
-  bottom: 8px;
+  bottom: 4px;
   left: 50%;
-  width: 8px;
   transform: translateX(-50%);
-  background: linear-gradient(var(--accent), var(--accent-strong));
-  border-radius: 5px;
-  opacity: 0.85;
+  width: 44px;
+  height: 32px;
+  border-radius: 16px 16px 6px 6px;
+  background: linear-gradient(160deg, #3a3f4a, #1c2027);
 }
 
 .chess-3d-chair-occupant {
@@ -2407,13 +2464,26 @@ button {
   justify-content: center;
 }
 
+/* Brown hair cap on top of the occupant's head */
+.chess-3d-chair-occupant::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 18px;
+  border-radius: 14px 14px 0 0;
+  background: linear-gradient(160deg, #6b4a30, #4a3220);
+}
+
 .chess-3d-chair-seat {
   margin-top: -6px;
   width: 76px;
   height: 18px;
   border-radius: 8px;
-  background: linear-gradient(160deg, #efe7d6, #cfc6b0);
-  border: 2px solid rgba(217, 166, 72, 0.45);
+  background: linear-gradient(160deg, #e6d3b3, #c4ad88);
+  border: 2px solid #9c8662;
 }
 
 .chess-3d-chair-armrest {
@@ -2422,8 +2492,8 @@ button {
   width: 10px;
   height: 24px;
   border-radius: 5px;
-  background: linear-gradient(160deg, #efe7d6, #cfc6b0);
-  border: 2px solid rgba(217, 166, 72, 0.45);
+  background: linear-gradient(160deg, #e6d3b3, #c4ad88);
+  border: 2px solid #9c8662;
 }
 
 .chess-3d-chair-armrest--left {

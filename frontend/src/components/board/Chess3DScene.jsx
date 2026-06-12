@@ -79,6 +79,12 @@ export default function Chess3DScene({
       <div className="chess-3d-table">
         <div className="chess-3d-table-tilt">
           <div className="chess-3d-table-top" />
+          {showClocks && (
+            <div className="chess-3d-clock">
+              <span className="chess-3d-clock-dial" />
+              <span className="chess-3d-clock-dial" />
+            </div>
+          )}
           <div className="chess-3d-table-board">
             <Chess3DBoard
               fen={fen}
