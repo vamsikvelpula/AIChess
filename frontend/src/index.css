@@ -1949,6 +1949,36 @@ button {
     inset 0 0 40px rgba(255, 255, 255, 0.12);
 }
 
+/* Legs standing on the floor beneath the table, anchored to the
+   diamond's left/front/right corners so the table reads as a real
+   piece of furniture rather than a floating slab. */
+.chess-3d-table-leg {
+  position: absolute;
+  width: 2.2%;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(180deg, #6b7c90 0%, #4f6072 60%, #3a4856 100%);
+  box-shadow: 2px 2px 6px rgba(20, 26, 36, 0.25);
+}
+
+.chess-3d-table-leg--front {
+  left: 50%;
+  top: 72%;
+  height: 20%;
+  transform: translateX(-50%);
+}
+
+.chess-3d-table-leg--left {
+  left: 16%;
+  top: 41%;
+  height: 24%;
+}
+
+.chess-3d-table-leg--right {
+  left: 84%;
+  top: 41%;
+  height: 24%;
+}
+
 /* Chessboard inset on the table */
 .chess-3d-table-board {
   position: absolute;

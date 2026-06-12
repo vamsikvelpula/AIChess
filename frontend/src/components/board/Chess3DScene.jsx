@@ -77,6 +77,9 @@ export default function Chess3DScene({
       </div>
 
       <div className="chess-3d-table">
+        <span className="chess-3d-table-leg chess-3d-table-leg--left" />
+        <span className="chess-3d-table-leg chess-3d-table-leg--front" />
+        <span className="chess-3d-table-leg chess-3d-table-leg--right" />
         <div className="chess-3d-table-tilt">
           <div className="chess-3d-table-top" />
           {showClocks && (
