@@ -59,13 +59,6 @@ export default function Chess3DScene({
   return (
     <div className="chess-3d-scene">
       <div className={`chess-3d-player-row chess-3d-player-row--ai${aiActive ? " is-active" : ""}`}>
-        <div className="chess-3d-robot">
-          <span className="chess-3d-robot-antenna" />
-          <div className="chess-3d-robot-head">
-            <Face expression={faces.ai} />
-          </div>
-          <div className="chess-3d-robot-body" />
-        </div>
         <div className="chess-3d-player-info">
           <span className="chess-3d-player-name">AI Opponent</span>
           {showClocks && (
@@ -80,6 +73,30 @@ export default function Chess3DScene({
         <span className="chess-3d-table-leg chess-3d-table-leg--left" />
         <span className="chess-3d-table-leg chess-3d-table-leg--front" />
         <span className="chess-3d-table-leg chess-3d-table-leg--right" />
+
+        <div className="chess-3d-table-figure chess-3d-table-figure--user">
+          <div className="chess-3d-chair">
+            <div className="chess-3d-chair-back">
+              <div className="chess-3d-chair-occupant">
+                <Face expression={faces.user} />
+              </div>
+            </div>
+            <div className="chess-3d-chair-seat" />
+            <span className="chess-3d-chair-armrest chess-3d-chair-armrest--left" />
+            <span className="chess-3d-chair-armrest chess-3d-chair-armrest--right" />
+          </div>
+        </div>
+
+        <div className="chess-3d-table-figure chess-3d-table-figure--ai">
+          <div className="chess-3d-robot">
+            <span className="chess-3d-robot-antenna" />
+            <div className="chess-3d-robot-head">
+              <Face expression={faces.ai} />
+            </div>
+            <div className="chess-3d-robot-body" />
+          </div>
+        </div>
+
         <div className="chess-3d-table-tilt">
           <div className="chess-3d-table-top" />
           {showClocks && (
@@ -101,16 +118,6 @@ export default function Chess3DScene({
       </div>
 
       <div className={`chess-3d-player-row chess-3d-player-row--user${userActive ? " is-active" : ""}`}>
-        <div className="chess-3d-chair">
-          <div className="chess-3d-chair-back">
-            <div className="chess-3d-chair-occupant">
-              <Face expression={faces.user} />
-            </div>
-          </div>
-          <div className="chess-3d-chair-seat" />
-          <span className="chess-3d-chair-armrest chess-3d-chair-armrest--left" />
-          <span className="chess-3d-chair-armrest chess-3d-chair-armrest--right" />
-        </div>
         <div className="chess-3d-player-info">
           <span className="chess-3d-player-name">You</span>
           {showClocks && (

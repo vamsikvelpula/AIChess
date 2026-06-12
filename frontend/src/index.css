@@ -1979,6 +1979,27 @@ button {
   height: 24%;
 }
 
+/* The two players, seated on opposite sides of the table so they
+   read as facing each other across the board (as in the reference). */
+.chess-3d-table-figure {
+  position: absolute;
+  z-index: 2;
+}
+
+.chess-3d-table-figure--user {
+  left: 1%;
+  top: 38%;
+  transform: translateY(-50%) scale(1.15);
+  transform-origin: center bottom;
+}
+
+.chess-3d-table-figure--ai {
+  right: 1%;
+  top: 30%;
+  transform: translateY(-50%) scale(1.05);
+  transform-origin: center bottom;
+}
+
 /* Chessboard inset on the table */
 .chess-3d-table-board {
   position: absolute;
